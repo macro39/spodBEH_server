@@ -10,17 +10,14 @@ import java.util.Date;
 public class Run {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long runId;
 
     private String name;
     private Date date;
     private String location;
     private Double distance;
     private Double elevation;
-//    private String stands;
-//    private String runners;
-
 
     public Run() {
     }
@@ -33,12 +30,21 @@ public class Run {
         this.elevation = elevation;
     }
 
-    public Long getId() {
-        return id;
+    public Run(Long runId, String name, Date date, String location, Double distance, Double elevation) {
+        this.runId = runId;
+        this.name = name;
+        this.date = date;
+        this.location = location;
+        this.distance = distance;
+        this.elevation = elevation;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Long getRunId() {
+        return runId;
+    }
+
+    public void setRunId(Long runId) {
+        this.runId = runId;
     }
 
     public String getName() {
