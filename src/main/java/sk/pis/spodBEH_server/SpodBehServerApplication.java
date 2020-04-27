@@ -36,10 +36,15 @@ public class SpodBehServerApplication implements CommandLineRunner {
         runRepository.save(run1);
         runRepository.save(run2);
 
-        Runner runner = new Runner("Kamil", "Macek", "kamil.macek@mail.com", "+421092364", "muž", new GregorianCalendar(1998, Calendar.JANUARY, 23).getTime(), "kamil.macek", "123456");
-        runnerRepository.save(runner);
+        Runner runner1 = new Runner("Kamil", "Macek", "kamil.macek@mail.com", "+421092364", "muž", new GregorianCalendar(1998, Calendar.JANUARY, 23).getTime(), "kamil", "kamil");
+        Runner runner2 = new Runner("Jozef", "Olejník", "jozef.olejnik@mail.com", "+421092364", "muž", new GregorianCalendar(1998, Calendar.FEBRUARY, 23).getTime(), "jozef", "jozef");
+        Runner runner3 = new Runner("Milan", "Kaprál", "milan.kapral@mail.com", "+421092364", "muž", new GregorianCalendar(1998, Calendar.OCTOBER, 23).getTime(), "milan", "milan");
 
-        RunRunner runRunner = new RunRunner(run1.getRunId(), runner.getRunnerId());
+        runnerRepository.save(runner1);
+        runnerRepository.save(runner2);
+        runnerRepository.save(runner3);
+
+        RunRunner runRunner = new RunRunner(run1.getRunId(), runner1.getRunnerId());
         runRunnerRepository.save(runRunner);
     }
 }

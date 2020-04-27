@@ -32,6 +32,10 @@ public class RunnerController {
     public Runner authorize(@PathVariable(value = "username") String username, @PathVariable(value = "password") String password) {
         Runner runner = runnerRepository.findByUsernameAndPassword(username, password);
 
+        if (runner == null) {
+            return null;
+        }
+
         List<RunRunner> runnerList = runRunnerRepository.getAllByRunnerId(runner.getRunnerId());
 
         ArrayList<Run> runArrayList = new ArrayList<Run>();
