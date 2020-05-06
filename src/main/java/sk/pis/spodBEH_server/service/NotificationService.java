@@ -13,7 +13,7 @@ import smsnotificator.SMSPortType;
 import smsnotificator.SMSService;
 
 @Service
-public class RunService {
+public class NotificationService {
 
     @Autowired
     RunRepository runRepository;
@@ -21,13 +21,14 @@ public class RunService {
     @Autowired
     RunnerRepository runnerRepository;
 
+    SMSPortType smsService = new SMSService().getPort(SMSPortType.class);
+    MailPortType mailService = new MailService().getPort(MailPortType.class);
+
     public void sendSmsNotificationRunRegistration(Long runId, Long runnerId, boolean registered) {
         Runner runner = runnerRepository.getOne(runnerId);
         Run run = runRepository.getOne(runId);
 
         String message;
-        smsnotificator.SMSPortType smsService = new SMSService().getPort(SMSPortType.class);
-        mailnotificator.MailPortType mailService = new MailService().getPort(MailPortType.class);
         if (registered) {
             message = "Registrácia na diaľkový beh " + run.getName() + " prebehla úspešne!";
             smsService.notify(Constants.teamId, Constants.teamPassword, runner.getTelephoneNumber(), Constants.smsSubjectRegister, message);

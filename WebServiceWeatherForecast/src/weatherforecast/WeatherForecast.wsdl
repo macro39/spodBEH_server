@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="WeatherForecast" targetNamespace="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast" xmlns:tns="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast/types">
+  <types>
+    <xsd:schema targetNamespace="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast/types" xmlns="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast/types">
+      <xsd:complexType name="getTemperatureByDate">
+        <xsd:sequence>
+          <xsd:element name="date" type="xsd:string"/>
+          <xsd:element name="coord_lat" type="xsd:double"/>
+          <xsd:element name="coord_lon" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getTemperatureByDate" nillable="true" type="ns:getTemperatureByDate"/>
+      <xsd:complexType name="getTemperatureByDateResponse">
+        <xsd:sequence>
+          <xsd:element name="temperature" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getTemperatureByDateResponse" nillable="true" type="ns:getTemperatureByDateResponse"/>
+      <xsd:complexType name="getAverageTemperature">
+        <xsd:sequence>
+          <xsd:element name="year" type="xsd:int"/>
+          <xsd:element name="coord_lat" type="xsd:double"/>
+          <xsd:element name="coord_lon" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getAverageTemperature" nillable="true" type="ns:getAverageTemperature"/>
+      <xsd:complexType name="getAverageTemperatureResponse">
+        <xsd:sequence>
+          <xsd:element name="average" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getAverageTemperatureResponse" nillable="true" type="ns:getAverageTemperatureResponse"/>
+      <xsd:complexType name="getPrecipitationProbability">
+        <xsd:sequence>
+          <xsd:element name="date" type="xsd:string"/>
+          <xsd:element name="coord_lat" type="xsd:double"/>
+          <xsd:element name="coord_lon" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getPrecipitationProbability" nillable="true" type="ns:getPrecipitationProbability"/>
+      <xsd:complexType name="getPrecipitationProbabilityResponse">
+        <xsd:sequence>
+          <xsd:element name="probability" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getPrecipitationProbabilityResponse" nillable="true" type="ns:getPrecipitationProbabilityResponse"/>
+      <xsd:complexType name="getAveragePrecipitationProbability">
+        <xsd:sequence>
+          <xsd:element name="year" type="xsd:int"/>
+          <xsd:element name="coord_lat" type="xsd:double"/>
+          <xsd:element name="coord_lon" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getAveragePrecipitationProbability" nillable="true" type="ns:getAveragePrecipitationProbability"/>
+      <xsd:complexType name="getAveragePrecipitationProbabilityResponse">
+        <xsd:sequence>
+          <xsd:element name="average" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getAveragePrecipitationProbabilityResponse" nillable="true" type="ns:getAveragePrecipitationProbabilityResponse"/>
+      <xsd:complexType name="getSnowProbability">
+        <xsd:sequence>
+          <xsd:element name="date" type="xsd:string"/>
+          <xsd:element name="coord_lat" type="xsd:double"/>
+          <xsd:element name="coord_lon" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getSnowProbability" nillable="true" type="ns:getSnowProbability"/>
+      <xsd:complexType name="getSnowProbabilityResponse">
+        <xsd:sequence>
+          <xsd:element name="probability" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getSnowProbabilityResponse" nillable="true" type="ns:getSnowProbabilityResponse"/>
+      <xsd:complexType name="getAverageSnowProbability">
+        <xsd:sequence>
+          <xsd:element name="year" type="xsd:int"/>
+          <xsd:element name="coord_lat" type="xsd:double"/>
+          <xsd:element name="coord_lon" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getAverageSnowProbability" nillable="true" type="ns:getAverageSnowProbability"/>
+      <xsd:complexType name="getAverageSnowProbabilityResponse">
+        <xsd:sequence>
+          <xsd:element name="average" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getAverageSnowProbabilityResponse" nillable="true" type="ns:getAverageSnowProbabilityResponse"/>
+      <xsd:complexType name="getWindStrength">
+        <xsd:sequence>
+          <xsd:element name="date" type="xsd:string"/>
+          <xsd:element name="coord_lat" type="xsd:double"/>
+          <xsd:element name="coord_lon" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getWindStrength" nillable="true" type="ns:getWindStrength"/>
+      <xsd:complexType name="getWindStrengthResponse">
+        <xsd:sequence>
+          <xsd:element name="wind" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getWindStrengthResponse" nillable="true" type="ns:getWindStrengthResponse"/>
+      <xsd:complexType name="getAverageWindStrength">
+        <xsd:sequence>
+          <xsd:element name="year" type="xsd:int"/>
+          <xsd:element name="coord_lat" type="xsd:double"/>
+          <xsd:element name="coord_lon" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getAverageWindStrength" nillable="true" type="ns:getAverageWindStrength"/>
+      <xsd:complexType name="getAverageWindStrengthResponse">
+        <xsd:sequence>
+          <xsd:element name="average" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getAverageWindStrengthResponse" nillable="true" type="ns:getAverageWindStrengthResponse"/>
+    </xsd:schema>
+  </types>
+  <message name="getTemperatureByDateRequest">
+    <part name="parameters" element="ns:getTemperatureByDate"/>
+  </message>
+  <message name="getTemperatureByDateResponse">
+    <part name="parameters" element="ns:getTemperatureByDateResponse"/>
+  </message>
+  <message name="getAverageTemperatureRequest">
+    <part name="parameters" element="ns:getAverageTemperature"/>
+  </message>
+  <message name="getAverageTemperatureResponse">
+    <part name="parameters" element="ns:getAverageTemperatureResponse"/>
+  </message>
+  <message name="getPrecipitationProbabilityRequest">
+    <part name="parameters" element="ns:getPrecipitationProbability"/>
+  </message>
+  <message name="getPrecipitationProbabilityResponse">
+    <part name="parameters" element="ns:getPrecipitationProbabilityResponse"/>
+  </message>
+  <message name="getAveragePrecipitationProbabilityRequest">
+    <part name="parameters" element="ns:getAveragePrecipitationProbability"/>
+  </message>
+  <message name="getAveragePrecipitationProbabilityResponse">
+    <part name="parameters" element="ns:getAveragePrecipitationProbabilityResponse"/>
+  </message>
+  <message name="getSnowProbabilityRequest">
+    <part name="parameters" element="ns:getSnowProbability"/>
+  </message>
+  <message name="getSnowProbabilityResponse">
+    <part name="parameters" element="ns:getSnowProbabilityResponse"/>
+  </message>
+  <message name="getAverageSnowProbabilityRequest">
+    <part name="parameters" element="ns:getAverageSnowProbability"/>
+  </message>
+  <message name="getAverageSnowProbabilityResponse">
+    <part name="parameters" element="ns:getAverageSnowProbabilityResponse"/>
+  </message>
+  <message name="getWindStrengthRequest">
+    <part name="parameters" element="ns:getWindStrength"/>
+  </message>
+  <message name="getWindStrengthResponse">
+    <part name="parameters" element="ns:getWindStrengthResponse"/>
+  </message>
+  <message name="getAverageWindStrengthRequest">
+    <part name="parameters" element="ns:getAverageWindStrength"/>
+  </message>
+  <message name="getAverageWindStrengthResponse">
+    <part name="parameters" element="ns:getAverageWindStrengthResponse"/>
+  </message>
+  <portType name="WeatherForecastPortType">
+    <operation name="getTemperatureByDate">
+      <input message="tns:getTemperatureByDateRequest"/>
+      <output message="tns:getTemperatureByDateResponse"/>
+    </operation>
+    <operation name="getAverageTemperature">
+      <input message="tns:getAverageTemperatureRequest"/>
+      <output message="tns:getAverageTemperatureResponse"/>
+    </operation>
+    <operation name="getPrecipitationProbability">
+      <input message="tns:getPrecipitationProbabilityRequest"/>
+      <output message="tns:getPrecipitationProbabilityResponse"/>
+    </operation>
+    <operation name="getAveragePrecipitationProbability">
+      <input message="tns:getAveragePrecipitationProbabilityRequest"/>
+      <output message="tns:getAveragePrecipitationProbabilityResponse"/>
+    </operation>
+    <operation name="getSnowProbability">
+      <input message="tns:getSnowProbabilityRequest"/>
+      <output message="tns:getSnowProbabilityResponse"/>
+    </operation>
+    <operation name="getAverageSnowProbability">
+      <input message="tns:getAverageSnowProbabilityRequest"/>
+      <output message="tns:getAverageSnowProbabilityResponse"/>
+    </operation>
+    <operation name="getWindStrength">
+      <input message="tns:getWindStrengthRequest"/>
+      <output message="tns:getWindStrengthResponse"/>
+    </operation>
+    <operation name="getAverageWindStrength">
+      <input message="tns:getAverageWindStrengthRequest"/>
+      <output message="tns:getAverageWindStrengthResponse"/>
+    </operation>
+  </portType>
+  <binding name="WeatherForecastBinding" type="tns:WeatherForecastPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getTemperatureByDate">
+      <soap:operation soapAction="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast/#getTemperatureByDate"/>
+      <input>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast"/>
+      </output>
+    </operation>
+    <operation name="getAverageTemperature">
+      <soap:operation soapAction="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast/#getAverageTemperature"/>
+      <input>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast"/>
+      </output>
+    </operation>
+    <operation name="getPrecipitationProbability">
+      <soap:operation soapAction="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast/#getPrecipitationProbability"/>
+      <input>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast"/>
+      </output>
+    </operation>
+    <operation name="getAveragePrecipitationProbability">
+      <soap:operation soapAction="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast/#getAveragePrecipitationProbability"/>
+      <input>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast"/>
+      </output>
+    </operation>
+    <operation name="getSnowProbability">
+      <soap:operation soapAction="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast/#getSnowProbability"/>
+      <input>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast"/>
+      </output>
+    </operation>
+    <operation name="getAverageSnowProbability">
+      <soap:operation soapAction="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast/#getAverageSnowProbability"/>
+      <input>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast"/>
+      </output>
+    </operation>
+    <operation name="getWindStrength">
+      <soap:operation soapAction="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast/#getWindStrength"/>
+      <input>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast"/>
+      </output>
+    </operation>
+    <operation name="getAverageWindStrength">
+      <soap:operation soapAction="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast/#getAverageWindStrength"/>
+      <input>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/weatherforecast"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="WeatherForecastService">
+    <port name="WeatherForecastPort" binding="tns:WeatherForecastBinding">
+      <soap:address location="http://pis.predmety.fiit.stuba.sk/pis/ws/WeatherForecast"/>
+    </port>
+  </service>
+</definitions>
