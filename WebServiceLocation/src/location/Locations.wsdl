@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="Locations" targetNamespace="http://pis.predmety.fiit.stuba.sk/pis/geoservices/locations" xmlns:tns="http://pis.predmety.fiit.stuba.sk/pis/geoservices/locations" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://pis.predmety.fiit.stuba.sk/pis/geoservices/locations/types">
+  <types>
+    <xsd:schema targetNamespace="http://pis.predmety.fiit.stuba.sk/pis/geoservices/locations/types" xmlns="http://pis.predmety.fiit.stuba.sk/pis/geoservices/locations/types">
+      <xsd:complexType name="distanceByGPS">
+        <xsd:sequence>
+          <xsd:element name="latitudeFrom" type="xsd:double"/>
+          <xsd:element name="longitudeFrom" type="xsd:double"/>
+          <xsd:element name="latitudeTo" type="xsd:double"/>
+          <xsd:element name="longitudeTo" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="distanceByGPS" nillable="true" type="ns:distanceByGPS"/>
+      <xsd:complexType name="distanceByGPSResponse">
+        <xsd:sequence>
+          <xsd:element name="distance" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="distanceByGPSResponse" nillable="true" type="ns:distanceByGPSResponse"/>
+      <xsd:complexType name="distanceByZIP">
+        <xsd:sequence>
+          <xsd:element name="zip_from" type="xsd:string"/>
+          <xsd:element name="zip_to" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="distanceByZIP" nillable="true" type="ns:distanceByZIP"/>
+      <xsd:complexType name="distanceByZIPResponse">
+        <xsd:sequence>
+          <xsd:element name="distance" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="distanceByZIPResponse" nillable="true" type="ns:distanceByZIPResponse"/>
+      <xsd:complexType name="validateZIPCode">
+        <xsd:sequence>
+          <xsd:element name="zip" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="validateZIPCode" nillable="true" type="ns:validateZIPCode"/>
+      <xsd:complexType name="validateZIPCodeResponse">
+        <xsd:sequence>
+          <xsd:element name="exists" type="xsd:boolean"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="validateZIPCodeResponse" nillable="true" type="ns:validateZIPCodeResponse"/>
+    </xsd:schema>
+  </types>
+  <message name="distanceByGPSRequest">
+    <part name="parameters" element="ns:distanceByGPS"/>
+  </message>
+  <message name="distanceByGPSResponse">
+    <part name="parameters" element="ns:distanceByGPSResponse"/>
+  </message>
+  <message name="distanceByZIPRequest">
+    <part name="parameters" element="ns:distanceByZIP"/>
+  </message>
+  <message name="distanceByZIPResponse">
+    <part name="parameters" element="ns:distanceByZIPResponse"/>
+  </message>
+  <message name="validateZIPCodeRequest">
+    <part name="parameters" element="ns:validateZIPCode"/>
+  </message>
+  <message name="validateZIPCodeResponse">
+    <part name="parameters" element="ns:validateZIPCodeResponse"/>
+  </message>
+  <portType name="LocationsPortType">
+    <operation name="distanceByGPS">
+      <input message="tns:distanceByGPSRequest"/>
+      <output message="tns:distanceByGPSResponse"/>
+    </operation>
+    <operation name="distanceByZIP">
+      <input message="tns:distanceByZIPRequest"/>
+      <output message="tns:distanceByZIPResponse"/>
+    </operation>
+    <operation name="validateZIPCode">
+      <input message="tns:validateZIPCodeRequest"/>
+      <output message="tns:validateZIPCodeResponse"/>
+    </operation>
+  </portType>
+  <binding name="LocationsBinding" type="tns:LocationsPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="distanceByGPS">
+      <soap:operation soapAction="http://pis.predmety.fiit.stuba.sk/pis/geoservices/locations/#distanceByGPS"/>
+      <input>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/geoservices/locations"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/geoservices/locations"/>
+      </output>
+    </operation>
+    <operation name="distanceByZIP">
+      <soap:operation soapAction="http://pis.predmety.fiit.stuba.sk/pis/geoservices/locations/#distanceByZIP"/>
+      <input>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/geoservices/locations"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/geoservices/locations"/>
+      </output>
+    </operation>
+    <operation name="validateZIPCode">
+      <soap:operation soapAction="http://pis.predmety.fiit.stuba.sk/pis/geoservices/locations/#validateZIPCode"/>
+      <input>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/geoservices/locations"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://pis.predmety.fiit.stuba.sk/pis/geoservices/locations"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="LocationsService">
+    <port name="LocationsPort" binding="tns:LocationsBinding">
+      <soap:address location="http://pis.predmety.fiit.stuba.sk/pis/ws/GeoServices/Locations"/>
+    </port>
+  </service>
+</definitions>
